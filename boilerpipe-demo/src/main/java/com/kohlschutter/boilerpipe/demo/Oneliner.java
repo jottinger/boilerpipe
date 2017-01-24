@@ -20,6 +20,8 @@ package com.kohlschutter.boilerpipe.demo;
 import java.net.URL;
 
 import com.kohlschutter.boilerpipe.extractors.ArticleExtractor;
+import com.kohlschutter.boilerpipe.extractors.CommonExtractors;
+import com.kohlschutter.boilerpipe.extractors.DefaultExtractor;
 
 /**
  * Demonstrates how to use Boilerpipe to get the main content as plain text. Note: In real-world
@@ -31,13 +33,17 @@ public class Oneliner {
   public static void main(final String[] args) throws Exception {
     final URL url =
         new URL(
-            "http://blog.openshift.com/day-18-boilerpipe-article-extraction-for-java-developers/"
-        // "http://www.dn.se/nyheter/vetenskap/annu-godare-choklad-med-hjalp-av-dna-teknik"
+         //   "http://blog.openshift.com/day-18-boilerpipe-article-extraction-for-java-developers/"
+         "http://enigmastation.com/2016/08/30/first-they-came-for-but-so-what/"
         );
 
-    System.out.println(ArticleExtractor.INSTANCE.getText(url));
-
-    // Also try other extractors!
+      System.out.println("----------------------------------ARTICLE");
+      System.out.println(ArticleExtractor.INSTANCE.getText(url));
+      System.out.println("----------------------------------DEFAULT");
+      System.out.println(DefaultExtractor.INSTANCE.getText(url));
+      System.out.println("----------------------------------COMMON");
+      System.out.println(CommonExtractors.CANOLA_EXTRACTOR.getText(url));
+      // Also try other extractors!
     // System.out.println(DefaultExtractor.INSTANCE.getText(url));
     // System.out.println(CommonExtractors.CANOLA_EXTRACTOR.getText(url));
   }

@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.kohlschutter.boilerpipe</groupId>
+  <groupId>com.autumncode.boilerpipe</groupId>
   <artifactId>boilerpipe-parent</artifactId>
   <version>2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -31,8 +31,8 @@
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     <file.encoding>UTF-8</file.encoding>
     <maven.compile.encoding>UTF-8</maven.compile.encoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
 
     <boilerpipe.parent.base.directory>${project.basedir}</boilerpipe.parent.base.directory>
   </properties>
@@ -42,8 +42,8 @@
       <id>eclipse-compiler-checks</id>
 
       <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <eclipse-warnings>strict</eclipse-warnings>
       </properties>
 
@@ -75,13 +75,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
-        </configuration>
-      </plugin>
       <plugin>
         <artifactId>maven-source-plugin</artifactId>
         <executions>
@@ -191,19 +184,24 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>[1.7.22,)</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml -->
+    <dependency>
+      <groupId>net.sourceforge.nekohtml</groupId>
+      <artifactId>nekohtml</artifactId>
+      <version>1.9.22</version>
+    </dependency>
+
   </dependencies>
 
   <modules>
-    <module>nekohtml</module>
-    <module>nekohtml-relocated</module>
     <module>boilerpipe-common</module>
     <module>boilerpipe-demo</module>
   </modules>
